@@ -1,0 +1,322 @@
+@import url("https://fonts.cdnfonts.com/css/nolan-next");
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: white;
+  font-family: "Montserrat", sans-serif;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  overflow: hidden;
+}
+
+#start {
+  position: absolute;
+  background: #ffffff;
+  background: linear-gradient(0deg, #848484 5%, #ffffff 69%);
+  /* border: 3px black solid; */
+  width: 320px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 5;
+  transition: all 1s ease;
+  opacity: 1;
+}
+
+#start h1 {
+  color: white;
+  font-size: larger;
+  text-align: center;
+  margin: 0 20px 0 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#start img {
+  width: 200px;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+#startButton {
+  color: #003b30;
+  border-radius: 10px;
+  font-size: large;
+  width: 120px;
+  height: 50px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-weight: bolder;
+  animation: pulse 1s ease-in-out infinite;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  background: #111;
+  position: relative;
+  border: none;
+  outline: none;
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+#startButton:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff5200,
+    rgb(255, 155, 72),
+    rgb(255, 176, 112),
+    #f9cc24,
+    #ffd951,
+    #ffe68a,
+    #007c5c,
+    #2ab391,
+    #ff5200
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* #startButton:active {
+  width: 110px;
+  height: 45px;
+  border: none;
+  outline: none;
+  color: #003b30;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  font-size: 17px;
+  transform: scale(0.5);
+} */
+
+/* 
+#startButton:active:after {
+  background: transparent;
+  animation: flash;
+  animation-duration: 2s;
+} */
+
+#startButton:hover:before {
+  opacity: 1;
+}
+
+#startButton:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.canvas1 {
+  position: absolute;
+  /* border: 3px black solid; */
+  width: 320px;
+  height: 480px;
+  z-index: 4;
+
+  display: none;
+}
+
+.canvas2 {
+  position: absolute;
+  /* border: 3px black solid; */
+  width: 320px;
+  height: 480px;
+  z-index: 4;
+}
+
+.time,
+.gameScore {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.475);
+  color: white;
+  padding: 5px;
+  z-index: 4;
+  display: none;
+  user-select: none;
+  top: 10px;
+  width: 70px;
+  text-align: center;
+}
+
+.time {
+  left: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.gameScore {
+  right: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+/* #startButton:hover {
+  color: white;
+  background: #43798c;
+  transition: 0.5s;
+} */
+
+#plainImage,
+#gasStation,
+#car1,
+#car2,
+#car3 {
+  display: none;
+}
+
+#start {
+  position: absolute;
+  z-index: 1;
+}
+
+.gameOverOff {
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.gameOverOn {
+  position: absolute;
+  background: #003b30;
+  background: linear-gradient(0deg, #003b30 5%, #43798c 69%);
+  /* border: 3px black solid; */
+  width: 320px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  opacity: 1;
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+#score {
+  color: white;
+  text-align: center;
+  transform: translate(0, -70px);
+  z-index: 1;
+  transition: all 0.3s ease-in;
+}
+
+.gameOverOn h3 {
+  color: white;
+  text-align: center;
+  margin: 0 20px 0 20px;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logo2 {
+  width: 150px;
+  transform: translate(0, -50px);
+  filter: drop-shadow(0px 4px 10px rgba(255, 255, 255, 0.8));
+}
+
+#fireworks {
+  width: 320px;
+  height: 480px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.gameOverOn button {
+  color: #003b30;
+  background-color: #f9cc24;
+  border: none;
+  border-radius: 10px;
+  font-size: large;
+  width: 140px;
+  height: 50px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-weight: bolder;
+  z-index: 1;
+  animation: pulse 1s ease-in-out infinite;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.gameOverOn button:hover {
+  color: white;
+  background: #ff5200;
+  transition: 0.5s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.vini {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  left: 120px;
+  bottom: 0;
+  z-index: 0;
+}

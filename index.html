@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="text/javascript"
+      src="http://ds.serving-sys.com/BurstingScript/adKit/adkit.js"
+    ></script>
+    <link
+      href="//db.onlinewebfonts.com/c/1f6bc7d42c6e5a794ffde3d936f71bfc?family=QUUB"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>369 Gaming</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="start">
+        <img src="imgs/logo.png" alt="logo" />
+        <h1>Haz click cuando el avión pase por el logo de 369 Gaming Media</h1>
+        <button id="startButton">¡Empezar!</button>
+      </div>
+      <canvas id="canvas1" class="canvas1"> </canvas>
+      <h3 class="time">00:20</h3>
+      <h3 class="gameScore">0</h3>
+
+      <div id="gameOver" class="gameOverOff">
+        <canvas id="fireworks"></canvas>
+        <img id="gameOverLogo" class="logo2" src="imgs/logo2.png" alt="logo" />
+        <h3 id="score">¡Obtuviste</h3>
+        <h3>¡Ingresá a 369 Gaming y empezá a ganar!</h3>
+
+        <button id="ctaButton">¡Ingresá ya!</button>
+        <img class="vini" src="imgs/player.png" alt="" />
+      </div>
+    </div>
+    <script>
+      // Listen for adkit
+      adkit.onReady(function () {
+        // Load Feature
+        loadFeature();
+      });
+
+      function loadFeature() {
+        // Establish references for buttons
+
+        var startButton = document.getElementById("start");
+        //var clearButton = document.getElementById('clearButton');
+        //var resetButton = document.getElementById('resetButton');
+
+        // Add Click event listener to clear button
+        //clearButton.addEventListener("click", clearScratch, false);
+        // Add Click event listener to reset button
+        //resetButton.addEventListener("click", resetScratch, false);
+        // Add Click event listener to cta button
+        startButton.addEventListener("click", startGame, false);
+
+        var ctaButton = document.getElementById("ctaButton");
+        //var clearButton = document.getElementById('clearButton');
+        //var resetButton = document.getElementById('resetButton');
+
+        // Add Click event listener to clear button
+        //clearButton.addEventListener("click", clearScratch, false);
+        // Add Click event listener to reset button
+        //resetButton.addEventListener("click", resetScratch, false);
+        // Add Click event listener to cta button
+        ctaButton.addEventListener("click", handleCTA, false);
+
+        // Callback for on ready
+        function onScratchReady() {
+          // do something on ready
+          document.getElementById("underContent").style.display = "block";
+        }
+
+        function startGame() {
+          document.getElementById("start").style.display = "none";
+          // check if first run
+          EB.userActionCounter("Game_Start");
+        }
+
+        // handle click for CTA button
+        function handleCTA() {
+          // Fire Clickthrough on CTA click
+          EB.userActionCounter("Scratch_and_Reveal_Go-to");
+          //window.open('http://www.expertoenmalezas.com.py');
+          //return false;
+          EB.clickthrough();
+        }
+      }
+    </script>
+
+    <script src="script/variables.js"></script>
+    <script src="script/Objects/Layers.js"></script>
+    <script src="script/Objects/Plane.js"></script>
+    <script src="script/Objects/Station.js"></script>
+    <script type="module" src="script/app.js"></script>
+  </body>
+</html>
