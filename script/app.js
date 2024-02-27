@@ -1,25 +1,25 @@
 const fireworksContainer = document.getElementById("fireworks");
 
-const fireworks = new Fireworks(fireworksContainer, {
-  /* options */
-  delay: { min: 10, max: 15 },
-  opacity: 0.1,
-  acceleration: 1.05,
-  friction: 0.97,
-  gravity: 1.5,
-  particles: 70,
-  traceLength: 1,
-  traceSpeed: 20,
-  explosion: 5,
-  intensity: 5,
-  flickering: 10,
-  lineStyle: "round",
-  lineWidth: {
-    min: 2,
-    max: 5,
-  },
-});
-fireworks.start();
+// const fireworks = new Fireworks(fireworksContainer, {
+//   /* options */
+//   delay: { min: 10, max: 15 },
+//   opacity: 0.1,
+//   acceleration: 1.05,
+//   friction: 0.97,
+//   gravity: 1.5,
+//   particles: 70,
+//   traceLength: 1,
+//   traceSpeed: 20,
+//   explosion: 5,
+//   intensity: 5,
+//   flickering: 10,
+//   lineStyle: "round",
+//   lineWidth: {
+//     min: 2,
+//     max: 5,
+//   },
+// });
+// fireworks.start();
 
 function initializeGame() {
   start.style.zIndex = -1;
